@@ -24,7 +24,7 @@ class Post(models.Model):
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
     date_update = models.DateField(null=True)
-    tag = models.CharField(null=False,max_length=50,choices=Tag.objects.all().values_list("tag_name","tag_name"))
+    tag = models.CharField(null=False,max_length=50)
     slug = AutoSlugField(populate_from="title" )
     draft = models.BooleanField(default=False,null=False)
     
