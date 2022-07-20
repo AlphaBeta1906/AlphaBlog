@@ -95,7 +95,7 @@ WSGI_APPLICATION = "django_cms.wsgi.application"
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME": "django_cms",
+        "NAME": str(getenv("DBASE_NAME")),
         "USER": str(getenv("DBASE_USERNAME")),
         "PASSWORD": str(getenv("PASSWORD")),
         "HOST": str(getenv("HOST")),      
