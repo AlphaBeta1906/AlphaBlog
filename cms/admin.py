@@ -10,16 +10,8 @@ class TagChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return str(obj.tag_name)
 
-class AdminPostForm(ModelForm):
-    _tags = [(_tag["tag_name"],_tag["tag_name"]) for _tag in Tag.objects.values("tag_name")]
-    tag = forms.ChoiceField(choices=_tags)
-    
-    class Meta:
-        model  = Post
-        fields = ("title","content","cover_image","date_update","tag","draft")
 
 class PostAdmin(admin.ModelAdmin):
-    form = AdminPostForm
     list_display = ("title","author","tag","slug","date_publish","date_update","draft")
     list_filter = ("tag","draft","author")
     search_fields = ("title","tag","slug")
