@@ -1,0 +1,25 @@
+<div class="post">
+    <hgroup>
+        <h2>
+            <a href="{% url 'read_post' post.slug %} ">
+                {{post.title}}
+            </a>
+        </h2>
+        <p>
+            <i class="fas fa-clock" style="padding-right: 5px;"></i>
+            {% if post.date_update %}
+                {{post.date_update}} (updated) 
+            {% else %}
+                {{post.date_publish}}
+            {% endif %}
+        </p>
+        <a href="{% url 'post_tag' post.tag %}">
+            #{{post.tag}}
+        </a>
+        {% include "profile.html" %}
+    </hgroup>
+    <p style="font-size: 1rem">
+        {{post.content|truncatechars:150}}
+    </p>
+    <hr>
+</div>

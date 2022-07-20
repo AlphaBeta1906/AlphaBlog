@@ -1,0 +1,58 @@
+{% load static %}
+{% load django_browser_reload %}
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block meta %}
+    
+    {% endblock meta %}
+    <title>
+      {% block title %}
+      
+      {% endblock title %}
+    </title>    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+    <link rel="stylesheet" href="{% static "pico.css" %}" />
+    <link rel="stylesheet" href="{% static "style.css" %}" />
+    <link  rel="stylesheet" href="{% static "stata_dark.css" %}" />
+    <link disabled="true"  rel="stylesheet" href="{% static "stata_light.css" %}" />
+    <script src="//unpkg.com/alpinejs" defer></script>
+</head>
+
+<body x-data="{dark: false}">
+  <nav class="container">
+      <ul>
+        <li>
+          <strong>
+            <a  href="{% url 'index'%} ">Alphablog</a>
+          </strong>
+        </li>
+      </ul>
+      <ul>
+        <li><a href="{% url 'tag' %} ">Tag</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+      </ul>
+    </nav>
+    <div style="padding-bottom: 15px;">
+      {% block content %}
+      
+      {% endblock content %}
+    </div>
+    <br>
+    <div class="footer" style="padding-bottom:15px ;padding-top: 15px">
+        <center>
+          <p>
+           &copy;
+           {% now "Y" %}, 
+           Alfarizi <br> 
+           All rights reserved
+          </p>
+        </center>
+    </div>
+    {% django_browser_reload_script %}
+</body>
+</html>

@@ -1,0 +1,100 @@
+body {
+    position: relative;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin-top: 15px;
+    margin-bottom: 2px;
+}
+
+.post {
+    padding-top: 5px;
+    margin-bottom: 15px;
+}
+
+.post p {
+    font-size: 12pt;
+}
+
+a {
+    color: #edf0f3;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #1095c1;
+}
+
+.content img {
+    height: 350px;
+    margin-top: 1rem;
+    border-radius: 25px;
+    width: 100%;
+}
+
+.container {
+    padding-right: 2rem;
+    padding-left: 2rem;
+}
+
+.title {
+    text-align: center;
+    padding-bottom: 1px;
+    padding-top: 5px;
+}
+
+.publish {
+    text-align: center;
+    font-size: 12pt;
+}
+
+p,
+small,
+div {
+    color: #edf0f3;
+}
+
+nav {
+    padding-top: 6px;
+}
+
+p {
+    margin-bottom: 1px;
+}
+
+i {
+    margin-right: 2px;
+}
+
+.current {
+    background-color: #1095c1;
+    border-radius: 5px;
+    padding: 0.5rem;
+}
+
+.page {
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+#disqus_thread {
+    background: transparent;
+}
+
+.footer {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    text-align: center;
+}
+
+.social {
+    padding-right: 5px;
+    padding-left: 5px
+}

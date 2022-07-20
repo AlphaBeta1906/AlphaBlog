@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block meta %}
+    {% include "meta.html" with description=post.content|truncatechars:150 title=title type="article" img=post.cover_image %}
+{% endblock meta %}
+{% block title %}
+    {{post.title}}
+{% endblock title %}
+{% block content %}
+    {% load markdownify %}
+    <div class="container">
+        <div class="title">
+            <h1>{{post.title}}</h1>
+            <p class="publish"><i class="fas fa-clock"></i> Publish date: {{post.date_publish}}</p>
+            {% include "profile.html" %}
+            <a href="{% url 'post_tag' post.tag %}">#{{post.tag}}</a>
+        </div>
+        <hr>
+        <div class="content">
+            <img src="/{{post.cover_image}}" class="cover_img" loading="lazy" alt="{{post.title}} cover image" />
+            <br>
+            <hr>
+            <br>
+            {{post.content|markdownify}}
+        </div>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <div id="disqus_thread" class="disqus"></div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <script>
+        /**
+        *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+        *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+        /*
+        */
+        var disqus_config = function () {
+            this.page.url = "http://127.0.0.1:8000/{{request.path}}";  // Replace PAGE_URL with your page's canonical URL variable
+            this.page.identifier = "{{post.id}}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        };
+        (function() { // DON'T EDIT BELOW THIS LINE
+            var d = document, s = d.createElement('script');
+            s.src = 'https://alphablog-2.disqus.com/embed.js';
+            s.setAttribute('data-timestamp', +new Date());
+            (d.head || d.body).appendChild(s);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+    
+{% endblock content %}

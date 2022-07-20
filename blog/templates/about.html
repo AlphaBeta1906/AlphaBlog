@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% load static %}
+{% block title %}   
+    About
+{% endblock title %}
+{% block content %}
+    <div class="container" style="height: 100vh;padding-top:50px">
+        <img src="{% static 'profile/author.png' %}" style="height: 150px;width: 150px"/>
+        <br>
+        <br>
+        {% lorem 50 w random %}
+        <br>
+        <br>
+        <br>
+        <center>
+            <a class="social" href="https://github.com/AlphaBeta1906" title="github">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+            <a class="social" href="https://www.instagram.com/alfarizi_8301/" title="instagram">
+                <i class="fab fa-instagram fa-2x"></i>
+            </a>
+            <a class="social" href="https://www.linkedin.com/in/salman-al-farizi-5003561bb/" title="linkedin">
+                <i class="fab fa-linkedin-in fa-2x"></i>
+            </a>
+        </center>
+    </div>
+{% endblock content %}

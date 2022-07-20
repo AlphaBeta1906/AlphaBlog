@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block meta %}
+    {% include "meta.html" with description="a blogging website" title="Tags" type="article" img=""  %}
+{% endblock meta %}
+{% block title %} Tags {% endblock title %}
+{% block content %}
+    <div class="container" style="height: 86vh;">
+        {% for tag in  tags %}
+            <div style="margin-bottom: 15px;">
+                <h3>
+                    <a href="{% url 'post_tag' tag.tag_name %}">
+                        {{tag.tag_name}}
+                    </a>
+                </h3>
+                <p>
+                    {{tag.description}}
+                </p>
+                <hr>
+            </div>
+        {% empty %}
+            <h1>No tag here </h1>
+        {% endfor %}
+    </div>
+    <br>
+    <br>
+{% endblock content %}
