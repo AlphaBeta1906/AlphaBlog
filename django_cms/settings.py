@@ -98,8 +98,7 @@ DATABASES = {
         "NAME": "django_cms",
         "USER": str(getenv("DBASE_USERNAME")),
         "PASSWORD": str(getenv("PASSWORD")),
-        "HOST": str(getenv("HOST")),  
-        "PORT": str(getenv("PORT")), 
+        "HOST": str(getenv("HOST")),      
     }
 }
 
