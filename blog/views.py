@@ -6,7 +6,10 @@ from cms.models import Post, SiteSettings,Tag
 
 def index(request):
     page = request.GET.get("page",1)
-    paginate  = SiteSettings.objects.first().site_paginate
+    paginate = 5 
+    
+    if SiteSettings.objects.first():
+        paginate = SiteSettings.objects.first().site_paginate
     page_obj = Paginator(Post.objects.all().order_by("-id"),paginate)
     try:
         posts  = page_obj.page(page)
@@ -23,7 +26,10 @@ def index(request):
         })
 
 def post_tag(request,tag):
-    paginate  = SiteSettings.objects.first().site_paginate    
+    paginate = 5 
+    
+    if SiteSettings.objects.first():
+        paginate = SiteSettings.objects.first().site_paginate  
     page = request.GET.get("page",1)
     page_obj = Paginator(Post.objects.all().filter(tag=tag).order_by("-id"),paginate)
     
@@ -48,7 +54,10 @@ def read(request,slug):
     return render(request,"read.html",{"post": post})
 
 def tag(request):
-    paginate  = SiteSettings.objects.first().site_paginate
+    paginate = 5 
+    
+    if SiteSettings.objects.first():
+        paginate = SiteSettings.objects.first().site_paginate
     tags = Paginator(Tag.objects.all().order_by("-id"),paginate)
     return render(request,"tag.html",{"tags": tags.page(1)})
 
