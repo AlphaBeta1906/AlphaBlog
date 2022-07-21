@@ -1,6 +1,5 @@
 from django.db import models
 from django.utils import timezone
-from django.conf import settings
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
 from autoslug import AutoSlugField
@@ -18,9 +17,9 @@ class Tag(models.Model):
     description = models.TextField(max_length=150,null=False)
 
 class Post(models.Model):
-    author = models.ForeignKey(User,on_delete=models.CASCADE,null=True,db_column="user")
+    author = models.ForeignKey(User,on_delete=models.CASCADE,null=False,db_column="user")
     title =  models.CharField(null=False,max_length=50)
-    content = MarkdownxField(max_length=10000000)
+    content = models.TextField(max_length=10000000)
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
     date_update = models.DateField(null=True)
