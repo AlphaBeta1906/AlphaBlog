@@ -16,7 +16,7 @@
         <a href="{% url 'post_tag' post.tag %}">
             #{{post.tag}}
         </a>
-        {% include "profile.html" %}
+        {% include "profile.html" with author=post.author %}
     </hgroup>
     <p style="font-size: 1rem">
         {{post.content|truncatechars:150}}

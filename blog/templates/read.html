@@ -11,7 +11,7 @@
         <div class="title">
             <h1>{{post.title}}</h1>
             <p class="publish"><i class="fas fa-clock"></i> Publish date: {{post.date_publish}}</p>
-            {% include "profile.html" %}
+            {% include "profile.html" with author=post.author %}
             <a href="{% url 'post_tag' post.tag %}">#{{post.tag}}</a>
         </div>
         <hr>
