@@ -138,16 +138,13 @@ APPEND_SLASH = False
 
 # markdown renderer
 
-MARKDOWNX_MARKDOWN_EXTENSIONS = [
-    "markdown.extensions.extra",
-    "markdown.extensions.codehilite"
-]
-
 MARKDOWNIFY = {
     "default": {
         "MARKDOWN_EXTENSIONS": [
             "markdown.extensions.fenced_code",
             "markdown.extensions.codehilite",
+            " markdown.extensions.toc",
+            "markdown.extensions.sane_lists",
             "markdown.extensions.extra",
         ],
         "STRIP": False,
