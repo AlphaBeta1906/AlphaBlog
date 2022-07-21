@@ -26,8 +26,10 @@ class AdminPostForm(ModelForm):
         model  = Post
         fields = ("author","title","content","cover_image","date_update","tag","draft")
 
-class PostAdmin(admin.ModelAdmin):
+class PostAdmin(SummernoteModelAdmin):
+    form = AdminPostForm
     list_display = ("title","author","tag","slug","date_publish","date_update","draft")
+    summernote_fields = ("content",)
     list_filter = ("tag","draft","author")
     search_fields = ("title","tag","slug")
     date_hierarchy = "date_publish"
