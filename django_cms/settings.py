@@ -46,7 +46,6 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
-    "markdownx",
     "django_summernote",
     "django_gravatar",
     "django_browser_reload",
