@@ -3,7 +3,6 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
 from autoslug import AutoSlugField
-from markdownx.models import MarkdownxField
 
 class SiteSettings(models.Model):
     site_description = models.TextField(max_length=150,null=False)
