@@ -10,6 +10,7 @@ class TagChoiceField(ModelChoiceField):
     def label_from_instance(self, obj):
         return str(obj.tag_name)
 
+    tag = forms.ChoiceField(choices=[])
 
 class PostAdmin(admin.ModelAdmin):
     list_display = ("title","author","tag","slug","date_publish","date_update","draft")
