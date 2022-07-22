@@ -21,7 +21,7 @@ def index(request):
         {
             "posts": posts,
             "page_range": page_obj.get_elided_page_range(),
-            "page_count": page_obj.count,
+            "page_count": page_obj.num_pages,
             "url_to": "index"
         })
 
