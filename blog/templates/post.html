@@ -19,7 +19,11 @@
         {% include "profile.html" with author=post.author %}
     </hgroup>
     <p style="font-size: 1rem">
-        {{post.content|truncatechars:150}}
+        {% if post.description and post.description != "none" %}
+            {{post.description|truncatechars:150}}
+        {% else %}
+            Post about {{post.title}}
+        {% endif %}
     </p>
     <hr>
 </div>

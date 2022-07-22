@@ -18,7 +18,9 @@ class Tag(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=False,db_column="user")
     title =  models.CharField(null=False,max_length=50)
-    content = models.TextField(max_length=10000000)
+    description = models.TextField(max_length=500)
+    content = models.TextField(max_length=10000000,null=True)
+    keywords = models.CharField(null=True,max_length=500)
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
     date_update = models.DateField(null=True)
