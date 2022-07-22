@@ -24,7 +24,7 @@ class AdminPostForm(ModelForm):
     
     class Meta:
         model  = Post
-        fields = ("author","title","content","cover_image","date_update","tag","draft")
+        fields = "__all__"
 
 class PostAdmin(SummernoteModelAdmin):
     form = AdminPostForm
