@@ -143,8 +143,6 @@ MARKDOWNIFY = {
         "MARKDOWN_EXTENSIONS": [
             "markdown.extensions.fenced_code",
             "markdown.extensions.codehilite",
-            " markdown.extensions.toc",
-            "markdown.extensions.sane_lists",
             "markdown.extensions.extra",
         ],
         "STRIP": False,
