@@ -163,3 +163,5 @@ staticfiles
 migrations/
 
 django-summernote/
+
+media/static
