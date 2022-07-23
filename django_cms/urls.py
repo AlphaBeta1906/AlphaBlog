@@ -21,8 +21,8 @@ from django.conf.urls.static import static
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("__reload__/", include("django_browser_reload.urls")),
-    path("__debug__/", include("debug_toolbar.urls")),
+    #path("__reload__/", include("django_browser_reload.urls")),
+    #path("__debug__/", include("debug_toolbar.urls")),
     #path("summernote/", include("django_summernote.urls")),
     path("markdownx/", include("markdownx.urls")),
     path("blog", include("blog.urls")),
