@@ -47,6 +47,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "markdownify.apps.MarkdownifyConfig",
     "django_summernote",
+    "markdownx",
     "django_gravatar",
     "django_browser_reload",
     "debug_toolbar",
@@ -137,6 +138,11 @@ APPEND_SLASH = False
 
 
 # markdown renderer
+MARKDOWNX_MARKDOWN_EXTENSIONS = [
+    "markdown.extensions.extra",
+    "markdown.extensions.fenced_code",
+    "markdown.extensions.codehilite",
+]
 
 MARKDOWNIFY = {
     "default": {
