@@ -12,10 +12,10 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 
 from pathlib import Path
-from dotenv import load_dotenv
+from dotenv import load_dotenv,find_dotenv
 from os import getenv
 
-load_dotenv()
+load_dotenv(find_dotenv())
 
 # Build paths inside the project like this: BASE_DIR / "subdir".
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,7 +28,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = str(getenv("SECRET_KEY"))
 
 # SECURITY WARNING: don"t run with debug turned on in production!
-DEBUG = str(getenv("DEBUG"))
+DEBUG = (getenv("DEBUG") == "true")
 
 ALLOWED_HOSTS = ["*"]
 
