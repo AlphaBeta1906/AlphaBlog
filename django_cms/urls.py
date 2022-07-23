@@ -25,7 +25,7 @@ urlpatterns = [
     path("__debug__/", include("debug_toolbar.urls")),
     #path("summernote/", include("django_summernote.urls")),
     path("markdownx/", include("markdownx.urls")),
-    path("", include("blog.urls")),
+    path("blog", include("blog.urls")),
 ]
 
 
