@@ -2,8 +2,8 @@ from django import forms
 from django.contrib import admin
 from django.forms import ModelChoiceField, ModelForm
 from django.db.utils import ProgrammingError
+from markdownx.admin import MarkdownxModelAdmin
 from .models import Post, Tag,SiteSettings
-from django_summernote.admin import SummernoteModelAdmin
 
 # Register your models here.
 
@@ -26,10 +26,9 @@ class AdminPostForm(ModelForm):
         model  = Post
         fields = "__all__"
 
-class PostAdmin(SummernoteModelAdmin):
+class PostAdmin(admin.ModelAdmin):
     form = AdminPostForm
     list_display = ("title","author","tag","slug","date_publish","date_update","draft")
-    summernote_fields = ("content",)
     list_filter = ("tag","draft","author")
     search_fields = ("title","tag","slug")
     date_hierarchy = "date_publish"

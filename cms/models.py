@@ -3,6 +3,8 @@ from django.utils import timezone
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
 from autoslug import AutoSlugField
+from markdownx.models import MarkdownxField
+
 
 class SiteSettings(models.Model):
     site_description = models.TextField(max_length=150,null=False)
@@ -19,7 +21,7 @@ class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=False,db_column="user")
     title =  models.CharField(null=False,max_length=50)
     description = models.TextField(max_length=500)
-    content = models.TextField(max_length=10000000,null=True)
+    content = MarkdownxField()
     keywords = models.CharField(null=True,max_length=500)
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
