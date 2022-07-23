@@ -70,7 +70,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "django_cms.urls"
 
-STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
+STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
 
 TEMPLATES = [
     {
