@@ -1,4 +1,6 @@
 {% extends "base.html" %}
+{% load static %}
+{% load django_browser_reload %}
 {% block meta %}
     {% include "meta.html" with description=post.content|truncatechars:150 title=title type="article" img=post.cover_image %}
 {% endblock meta %}
