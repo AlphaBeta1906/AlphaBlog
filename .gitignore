@@ -164,4 +164,4 @@ migrations/
 
 django-summernote/
 
-media/static
+media/static/image/*.jpg
