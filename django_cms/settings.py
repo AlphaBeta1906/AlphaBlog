@@ -71,6 +71,8 @@ MIDDLEWARE = [
 ROOT_URLCONF = "django_cms.urls"
 
 STATICFILES_STORAGE = "django.contrib.staticfiles.storage.ManifestStaticFilesStorage"
+WHITENOISE_MANIFEST_STRICT = False
+
 
 TEMPLATES = [
     {
