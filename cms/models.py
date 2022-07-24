@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils import timezone
+from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
 from autoslug import AutoSlugField
@@ -19,9 +20,7 @@ class Tag(models.Model):
 class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=False,db_column="user")
     title =  models.CharField(null=False,max_length=50)
-    description = models.TextField(max_length=500)
-    content = MarkdownxField()
-    keywords = models.CharField(null=True,max_length=500)
+    content = MarkdownxField()    
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
     date_update = models.DateField(null=True)
@@ -33,3 +32,7 @@ class Post(models.Model):
         if self.date_publish:
             self.date_update = timezone.now()
         super(Post,self).save(*args, **kwargs)
+    
+    def get_absolute_url(self):
+        return reverse("read_post", kwargs={"slug": self.slug})
+    
