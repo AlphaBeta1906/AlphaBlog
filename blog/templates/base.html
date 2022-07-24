@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html lang="en"  x-data="{dark: true}" :class="dark?'dark':'light'">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
     <script src="//unpkg.com/alpinejs" defer></script>
 </head>
 
-<body x-data="{dark: false}">
+<body>
   <nav class="container">
       <ul>
         <li>
@@ -34,6 +34,7 @@
       <ul>
         <li><a href="{% url 'tag' %} ">Tag</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
+        <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark"></i></li>
       </ul>
     </nav>
     <div style="padding-bottom: 15px;">

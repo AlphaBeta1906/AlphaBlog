@@ -210,8 +210,8 @@ kbd {
     --font-weight: bolder
 }
 
-:root:not([data-theme=dark]),
-[data-theme=light] {
+:root:not(.dark),
+.light {
     color-scheme: light;
     --background-color: #fff;
     --color: hsl(205deg, 20%, 32%);
@@ -310,7 +310,7 @@ kbd {
 }
 
 @media only screen and (prefers-color-scheme:dark) {
-     :root:not([data-theme=light]) {
+     :root:not(.light) {
         color-scheme: dark;
         --background-color: #11191f;
         --color: hsl(205deg, 16%, 77%);
@@ -410,7 +410,7 @@ kbd {
     }
 }
 
-[data-theme=dark] {
+.dark {
     color-scheme: dark;
     --background-color: #11191f;
     --color: hsl(205deg, 16%, 77%);

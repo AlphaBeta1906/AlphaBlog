@@ -21,13 +21,22 @@ h6 {
     font-size: 12pt;
 }
 
-a {
+.dark a {
     color: #edf0f3;
     text-decoration: none;
 }
 
-a:hover {
+.light a {
+    color: #1b2832;
+}
+
+a:hover:not(.curent) {
     color: #1095c1;
+}
+
+.theme_switch {
+    font-size: 1.5em;
+    cursor: pointer;
 }
 
 .content img {
@@ -53,10 +62,12 @@ a:hover {
     font-size: 12pt;
 }
 
-p,
-small,
-div {
+.dark div {
     color: #edf0f3;
+}
+
+.light div {
+    color: black;
 }
 
 nav {
