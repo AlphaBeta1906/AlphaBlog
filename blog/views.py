@@ -52,7 +52,7 @@ def post_tag(request,tag):
     
 def read(request,slug):
     post = Post.objects.filter(slug=slug).first()
-    if post.draft:
+    if post.draft and not request.user.is_authenticated:
         raise Http404
     return render(request,"read.html",{"post": post})
 
