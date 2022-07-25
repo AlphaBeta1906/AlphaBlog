@@ -1,3 +1,4 @@
+from django.http import Http404
 from django.shortcuts import render
 from django.core.paginator import Paginator,EmptyPage
 from cms.models import Post, SiteSettings,Tag
@@ -10,7 +11,7 @@ def index(request):
     
     if SiteSettings.objects.first():
         paginate = SiteSettings.objects.first().site_paginate
-    page_obj = Paginator(Post.objects.all().order_by("-id"),paginate)
+    page_obj = Paginator(Post.objects.all().filter(draft=False).order_by("-id"),paginate)
     try:
         posts  = page_obj.page(page)
     except EmptyPage:
@@ -31,7 +32,7 @@ def post_tag(request,tag):
     if SiteSettings.objects.first():
         paginate = SiteSettings.objects.first().site_paginate  
     page = request.GET.get("page",1)
-    page_obj = Paginator(Post.objects.all().filter(tag=tag).order_by("-id"),paginate)
+    page_obj = Paginator(Post.objects.all().filter(tag=tag,draft=False).order_by("-id"),paginate)
     
     try:
         posts  = page_obj.page(page)
@@ -51,6 +52,8 @@ def post_tag(request,tag):
     
 def read(request,slug):
     post = Post.objects.filter(slug=slug).first()
+    if post.draft:
+        raise Http404
     return render(request,"read.html",{"post": post})
 
 def tag(request):
