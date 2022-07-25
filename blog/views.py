@@ -32,7 +32,7 @@ def post_tag(request,tag):
     if SiteSettings.objects.first():
         paginate = SiteSettings.objects.first().site_paginate  
     page = request.GET.get("page",1)
-    page_obj = Paginator(Post.objects.all().filter(tag=tag,draft=False).order_by("-id"),paginate)
+    page_obj = Paginator(Post.objects.all().filter(tag__tag_name=tag,draft=False).order_by("-id"),paginate)
     
     try:
         posts  = page_obj.page(page)
