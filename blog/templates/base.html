@@ -1,4 +1,7 @@
 {% load static %}
+{% if debug  %}
+  {% load django_browser_reload %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="en"  x-data="{dark: true}" :class="dark?'dark':'light'">
 
@@ -53,5 +56,8 @@
           </p>
         </center>
     </div>
+    {% if debug  %}
+      {% django_browser_reload_script %}
+    {% endif %}
 </body>
 </html>

@@ -52,8 +52,8 @@ INSTALLED_APPS = [
     "django_summernote",
     "markdownx",
     "django_gravatar",
-    #"django_browser_reload",
-    #"debug_toolbar",
+    "django_browser_reload",
+    "debug_toolbar",
     "cms",
     "blog"
 ]
@@ -71,8 +71,8 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
-    #"django_browser_reload.middleware.BrowserReloadMiddleware",
-    #"debug_toolbar.middleware.DebugToolbarMiddleware",
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF = "django_cms.urls"
