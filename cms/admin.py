@@ -2,7 +2,6 @@ from django import forms
 from django.contrib import admin
 from django.forms import ModelChoiceField, ModelForm
 from django.db.utils import ProgrammingError
-from markdownx.admin import MarkdownxModelAdmin
 from .models import Post, Tag,SiteSettings
 
 # Register your models here.
@@ -13,20 +12,18 @@ class TagChoiceField(ModelChoiceField):
         return str(obj.tag_name)
 
 class AdminPostForm(ModelForm):
-    tag = forms.ChoiceField(choices=[])
+
     def __init__(self, *args, **kwargs):
-        try:
-            _tags = [(_tag["tag_name"],_tag["tag_name"]) for _tag in Tag.objects.values("tag_name")]
-        except ProgrammingError:
-            _tags = [("","")]    
         super(AdminPostForm, self).__init__(*args, **kwargs)
-        self.fields['tag'].choices = _tags
-    
+        self.fields['tag'].queryset = Tag.objects.all()
+        self.fields['tag'].label_from_instance = lambda obj: "%s" % (obj.tag_name)
     class Meta:
         model  = Post
         fields = "__all__"
 
 class PostAdmin(admin.ModelAdmin):
+    def tag_name(self,obj):
+        return obj.tag.tag_name
     form = AdminPostForm
     list_display = ("title","author","tag","slug","date_publish","date_update","draft")
     list_filter = ("tag","draft","author")

@@ -14,7 +14,7 @@
             {% endif %}
         </p>
         <a href="{% url 'post_tag' post.tag %}">
-            #{{post.tag}}
+            #{{post.tag.tag_name}}
         </a>
         {% include "profile.html" with author=post.author %}
     </hgroup>

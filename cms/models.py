@@ -16,6 +16,9 @@ class SiteSettings(models.Model):
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50,null=False,unique=True)
     description = models.TextField(max_length=150,null=False)
+    def __str__(self):
+        return f"{self.tag_name}"
+
 
 class Post(models.Model):
     author = models.ForeignKey(User,on_delete=models.CASCADE,null=False,db_column="user")
@@ -24,7 +27,7 @@ class Post(models.Model):
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
     date_publish = models.DateField(auto_now=True, editable=False)
     date_update = models.DateField(null=True)
-    tag = models.CharField(null=False,max_length=50)
+    tag = models.ForeignKey(Tag,on_delete=models.CASCADE,null=False)
     slug = AutoSlugField(populate_from="title" )
     draft = models.BooleanField(default=False,null=False)
     
