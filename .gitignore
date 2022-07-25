@@ -160,6 +160,8 @@ cython_debug/
 #.idea/
 staticfiles
 
+migrations/
+
 django-summernote/
 
 media/static/image/*.jpg
