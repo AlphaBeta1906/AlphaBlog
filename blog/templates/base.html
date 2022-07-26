@@ -3,7 +3,7 @@
   {% load django_browser_reload %}
 {% endif %}
 <!DOCTYPE html>
-<html lang="en"  x-data="{dark: true}" :class="dark?'dark':'light'">
+<html lang="en"  x-data="{dark: localStorage.getItem('dark') === 'true'}" :class="dark?'dark':'light'">
 
 <head>
     <meta charset="UTF-8">
@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="{% static "style.css" %}" />
     <link  rel="stylesheet" href="{% static "stata_dark.css" %}" />
     <link disabled="true"  rel="stylesheet" href="{% static "stata_light.css" %}" />
-    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" integrity="sha512-P0Ms+SM3w8aSbPa5U/nFoprxlUzG2FSz9h/A+2xhhE1hcH6RmGYK3dImFCvcSYuioM3UbbAtMbAopAuHLr94pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </head>
 
 <body>
@@ -37,7 +37,7 @@
       <ul>
         <li><a href="{% url 'tag' %} ">Tag</a></li>
         <li><a href="{% url 'about' %}">About</a></li>
-        <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark"></i></li>
+        <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark;localStorage.setItem('dark',dark)"></i></li>
       </ul>
     </nav>
     <div style="padding-bottom: 15px;">
