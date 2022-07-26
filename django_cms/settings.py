@@ -150,6 +150,10 @@ MARKDOWNX_MARKDOWN_EXTENSIONS = [
     "markdown.extensions.extra",
     "markdown.extensions.fenced_code",
     "markdown.extensions.codehilite",
+    "pymdownx.magiclink",
+    "pymdownx.saneheaders",
+    "markdown_checklists.extension",
+    "pymdownx.smartsymbols",
 ]
 
 MARKDOWNIFY = {
@@ -158,6 +162,10 @@ MARKDOWNIFY = {
             "markdown.extensions.fenced_code",
             "markdown.extensions.codehilite",
             "markdown.extensions.extra",
+            "pymdownx.magiclink",
+            "pymdownx.saneheaders",
+            "markdown_checklists.extension",
+            "pymdownx.smartsymbols",
         ],
         "STRIP": False,
         "BLEACH": False,
