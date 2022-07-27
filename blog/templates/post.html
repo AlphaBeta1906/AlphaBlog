@@ -1,7 +1,7 @@
 <div class="post">
     <hgroup>
         <h2>
-            <a href="{% url 'read_post' post.slug %} ">
+            <a href="{% url 'read_post' post.slug %} " title="read {{post.title}} ">
                 {{post.title}}
             </a>
         </h2>
@@ -13,13 +13,16 @@
                 {{post.date_publish}}
             {% endif %}
         </p>
-        <a href="{% url 'post_tag' post.tag %}">
+        <a href="{% url 'post_tag' post.tag %}" title="post with {{post.tag}} tag">
             #{{post.tag.tag_name}}
         </a>
         {% include "profile.html" with author=post.author %}
     </hgroup>
     <p style="font-size: 1rem">
-        {{post.title|truncatechars:150}}
+        {{post.title|truncatewords_html:20}}
     </p>
+    <a href="{% url 'read_post' post.slug %} " title="read {{post.title}} ">
+        Read more <i class="fas fa-arrow-right"></i>
+    </a>
     <hr>
 </div>
