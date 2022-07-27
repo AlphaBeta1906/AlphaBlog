@@ -1,7 +1,7 @@
 {% extends "base.html" %}
 {% load static %}
 {% block meta %}
-    {% include "meta.html" with description=post.content|truncatechars:150 title=title type="article" img=post.cover_image %}
+    {% include "meta.html" with description=post.content|truncatewords_html:50 title=title type="article" img=post.cover_image %}
 {% endblock meta %}
 {% block title %}
     {{post.title}}
