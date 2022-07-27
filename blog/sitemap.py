@@ -5,7 +5,7 @@ from cms.models import  Post
 class StaticSitemap(Sitemap):
     """Reverse 'static' views for XML sitemap."""
     changefreq = "daily"
-    priority = 0.5
+    priority = 1
     protocol = "https"
 
     def items(self):
