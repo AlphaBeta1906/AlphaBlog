@@ -4,8 +4,8 @@ from cms.models import  Post
 
 class StaticSitemap(Sitemap):
     """Reverse 'static' views for XML sitemap."""
-    changefreq = "daily"
-    priority = 1
+    changefreq = "weekly"
+    priority = 0.5
     protocol = "https"
 
     def items(self):
@@ -16,8 +16,8 @@ class StaticSitemap(Sitemap):
         return reverse(item)
 
 class DynamicSitemap(Sitemap):
-    changefreq = "daily"
-    priority = 1
+    changefreq = "weekly"
+    priority = 0.5
     protocol = "https"
 
     def items(self):
