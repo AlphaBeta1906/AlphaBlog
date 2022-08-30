@@ -25,7 +25,7 @@ class PostAdmin(admin.ModelAdmin):
     def tag_name(self,obj):
         return obj.tag.tag_name
     form = AdminPostForm
-    list_display = ("title","author","tag","slug","date_publish","date_update","draft")
+    list_display = ("title","author","cover_image","tag","slug","date_publish","date_update","draft")
     list_filter = ("tag","draft","author")
     search_fields = ("title","tag","slug")
     date_hierarchy = "date_publish"
