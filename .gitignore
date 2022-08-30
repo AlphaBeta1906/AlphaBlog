@@ -165,3 +165,4 @@ migrations/
 django-summernote/
 
 media/static/image/*.jpg
+*.webp
