@@ -1,11 +1,23 @@
+from io import BytesIO
 from django.db import models
 from django.utils import timezone
 from django.urls import reverse
 from django.contrib.auth.models import User
 from django.core.validators import MaxValueValidator,MinValueValidator
+from django.core.files import File
 from autoslug import AutoSlugField
 from markdownx.models import MarkdownxField
+from PIL import Image
 
+
+def compress(image):
+    import random
+    img = Image.open(image)
+    img_io = BytesIO()
+    img.save(img_io,format="webp",quality=60,optimize=True)
+    new_img = File(img_io,name=''.join(chr(random.randrange(65,90)) for i in range(10)) + ".webp")
+    return new_img
+    
 class SiteSettings(models.Model):
     site_description = models.TextField(max_length=150,null=False)
     site_domain = models.CharField(max_length=100,null=False)
@@ -32,9 +44,11 @@ class Post(models.Model):
     draft = models.BooleanField(default=False,null=False)
     
     def save(self,*args, **kwargs):
-        if self.date_publish:
+        self.cover_image = compress(self.cover_image)
+        exist = Post.objects.filter(title=self.title).first()
+        if not self.draft and exist:
             self.date_update = timezone.now()
-        super(Post,self).save(*args, **kwargs)
+        return super(Post,self).save(*args, **kwargs)
     
     def get_absolute_url(self):
         return reverse("read_post", kwargs={"slug": self.slug})
