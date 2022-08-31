@@ -6,12 +6,8 @@
             </a>
         </h2>
         <p>
-            <i class="fas fa-clock" style="padding-right: 5px;"></i>
-            {% if post.date_update %}
-                {{post.date_update}} (updated) 
-            {% else %}
-                {{post.date_publish}}
-            {% endif %}
+            <i class="fas fa-clock" style="padding-right: 5px;"></i>           
+            {{post.date_publish}}
         </p>
         <a href="{% url 'post_tag' post.tag %}" title="post with {{post.tag}} tag">
             #{{post.tag.tag_name}}
