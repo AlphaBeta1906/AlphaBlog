@@ -5,58 +5,58 @@
 <!DOCTYPE html>
 <html lang="en"  x-data="{dark: localStorage.getItem('dark') === 'true'}" :class="dark?'dark':'light'">
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    {% block meta %}
-    
-    {% endblock meta %}
-    <title>
-      {% block title %}
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta %}
+        
+        {% endblock meta %}
+        <title>
+            {% block title %}
       
-      {% endblock title %}
-    </title>    
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
-    <link rel="stylesheet" href="{% static "pico.min.css" %}" />
-    <link :disabled="dark?false:true" rel="stylesheet" href="{% static "stata_dark.css" %}" />
-    <link :disabled="dark?true:false"  rel="stylesheet" href="{% static "stata_light.css" %}" />
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" integrity="sha512-P0Ms+SM3w8aSbPa5U/nFoprxlUzG2FSz9h/A+2xhhE1hcH6RmGYK3dImFCvcSYuioM3UbbAtMbAopAuHLr94pA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</head>
+            {% endblock title %}
+        </title>    
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
+        <link rel="stylesheet" href="{% static "pico.min.css" %}" />
+        <link :disabled="dark?false:true" rel="stylesheet" href="{% static "stata_dark.css" %}" />
+        <link :disabled="dark?true:false"  rel="stylesheet" href="{% static "stata_light.css" %}" />
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" integrity="sha512-P0Ms+SM3w8aSbPa5U/nFoprxlUzG2FSz9h/A+2xhhE1hcH6RmGYK3dImFCvcSYuioM3UbbAtMbAopAuHLr94pA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
+    </head>
 
-<body>
-  <nav class="container">
-      <ul>
-        <li>
-          <strong>
-            <a  href="{% url 'index'%} ">Alphablog</a>
-          </strong>
-        </li>
-      </ul>
-      <ul>
-        <li><a href="{% url 'tag' %} ">Tag</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark;localStorage.setItem('dark',dark)"></i></li>
-      </ul>
-    </nav>
-    <div style="padding-bottom: 15px;">
-      {% block content %}
-      
-      {% endblock content %}
-    </div>
-    <br>
-    <div class="footer" style="padding-bottom:15px ;padding-top: 15px">
-        <center>
-          <p>
-           &copy;
-           {% now "Y" %}, 
-           Alfarizi <br> 
-           All rights reserved
-          </p>
-        </center>
-    </div>
-    {% if debug  %}
-      {% django_browser_reload_script %}
-    {% endif %}
-</body>
+    <body>
+        <nav class="container">
+            <ul>
+                <li>
+                    <strong>
+                        <a  href="{% url 'index'%} ">Alphablog</a>
+                    </strong>
+                </li>
+            </ul>
+            <ul>
+                <li><a href="{% url 'tag' %} ">Tag</a></li>
+                <li><a href="{% url 'about' %}">About</a></li>
+                <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark;localStorage.setItem('dark',dark)"></i></li>
+            </ul>
+        </nav>
+        <div style="padding-bottom: 15px;">
+        {% block content %}
+        
+        {% endblock content %}
+        </div>
+        <br>
+        <div class="footer" style="padding-bottom:15px ;padding-top: 15px">
+            <center>
+                <p>
+                    &copy;
+                    {% now "Y" %}, 
+                    Alfarizi <br> 
+                    All rights reserved
+                </p>
+            </center>
+        </div>
+        {% if debug  %}
+            {% django_browser_reload_script %}
+        {% endif %}
+    </body>
 </html>
