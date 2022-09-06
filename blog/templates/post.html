@@ -17,8 +17,8 @@
     <p style="font-size: 1rem">
         {{post.title|truncatewords_html:20}}
     </p>
-    <a href="{% url 'read_post' post.slug %} " title="read {{post.title}} ">
-        Read more <i class="fas fa-arrow-right"></i>
+    Lanjut membaca<a href="{% url 'read_post' post.slug %} " title="read {{post.title}} ">
+         {{post.title}} <i class="fas fa-arrow-right"></i>
     </a>
     <hr>
 </div>
