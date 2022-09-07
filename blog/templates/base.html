@@ -18,22 +18,25 @@
             {% endblock title %}
         </title>    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
-        <link rel="stylesheet" href="{% static "pico.min.css" %}" />
+    
+        
+        <link  rel="stylesheet" href="{% static "tachyon.css" %}" />
         <link :disabled="dark?false:true" rel="stylesheet" href="{% static "stata_dark.css" %}" />
         <link :disabled="dark?true:false"  rel="stylesheet" href="{% static "stata_light.css" %}" />
+        <link :disabled="dark?false:true" rel="stylesheet" href="{% static "dark.css" %}" />
+        <link :disabled="dark?true:false"  rel="stylesheet" href="{% static "light.css" %}" />
+        <link  rel="stylesheet" href="{% static "style.css" %}" />
         <script src="https://cdnjs.cloudflare.com/ajax/libs/alpinejs/3.10.3/cdn.min.js" integrity="sha512-P0Ms+SM3w8aSbPa5U/nFoprxlUzG2FSz9h/A+2xhhE1hcH6RmGYK3dImFCvcSYuioM3UbbAtMbAopAuHLr94pA==" crossorigin="anonymous" referrerpolicy="no-referrer" defer></script>
     </head>
 
-    <body>
+    <body :class="dark?'dark':'light'">
         <nav class="container">
             <ul>
-                <li>
+                <li>                            
                     <strong>
-                        <a  href="{% url 'index'%} ">Alphablog</a>
+                        <a href="{% url 'index' %} ">Alphablog</a>
                     </strong>
                 </li>
-            </ul>
-            <ul>
                 <li><a href="{% url 'tag' %} ">Tag</a></li>
                 <li><a href="{% url 'about' %}">About</a></li>
                 <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark;localStorage.setItem('dark',dark)"></i></li>

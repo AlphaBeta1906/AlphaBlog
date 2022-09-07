@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 {% load static %}
 {% block meta %}
-    {% include "meta.html" with description=post.content|truncatewords_html:50 title=title type="article" img=post.cover_image %}
+    {% include "meta.html" with description=post.content|truncatewords_html:50 title=title type="article" img=post.cover_image %}    
+    <meta name="author" content="{{post.author.username}}">
+    <meta property="article:published_time" content="{{post.date_publish}}" />
 {% endblock meta %}
 {% block title %}
     {{post.title}}
@@ -9,7 +11,7 @@
 {% block content %}
     {% load markdownify %}
     <div class="container">
-        <div class="title">
+        <div class="tc">
             <h1>{{post.title}}</h1>
             <p class="publish"><i class="fas fa-clock"></i> Publish date: {{post.date_publish}}</p>
             {% include "profile.html" with author=post.author %}
@@ -17,7 +19,7 @@
         </div>
         <hr>
         <div class="content">
-            <img src="/media/{{post.cover_image}}" class="cover_img" loading="lazy" alt="{{post.title}} cover image" />
+            <img src="/media/{{post.cover_image}}" class="w-100" loading="lazy" alt="{{post.title}} cover image" />
             <br>
             <hr>
             <br>
