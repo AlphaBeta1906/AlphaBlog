@@ -1,0 +1,39 @@
+:root{
+  font-size: 16pt
+}
+
+a:hover{
+  text-decoration: none;
+
+}
+
+.dark a{
+  
+  color: white
+}
+
+.light a{
+  color: #000000;
+}
+
+.dark a:hover{
+  color: #41adff
+}
+
+.light a:hover{
+  color: #41adff
+}
+
+nav {
+  display: flex; /* 1 */
+}
+
+nav ul {
+  display: flex; /* 5 */
+  list-style: none; /* 6 */
+}
+
+nav li {
+  padding-left: 1rem; /* 7! */
+}
+
