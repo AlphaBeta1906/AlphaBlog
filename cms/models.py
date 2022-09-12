@@ -23,12 +23,12 @@ class SiteSettings(models.Model):
     site_description = models.TextField(max_length=150,null=False)
     site_domain = models.CharField(max_length=100,null=False)
     site_paginate = models.PositiveIntegerField(default=5,validators=[MaxValueValidator(10),MinValueValidator(3)])
-    site_about = models.TextField(max_length=500,null=False)
+    site_about = models.TextField(max_length=5000,null=False)
     site_author = models.CharField(max_length=50,default="salman",editable=False)
 
 class Tag(models.Model):
     tag_name = models.CharField(max_length=50,null=False,unique=True)
-    description = models.TextField(max_length=150,null=False)
+    description = models.TextField(max_length=350,null=False)
     def __str__(self):
         return f"{self.tag_name}"
 
