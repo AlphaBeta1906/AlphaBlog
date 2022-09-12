@@ -13,13 +13,13 @@
     <div class="container">
         <div class="tc">
             <h1>{{post.title}}</h1>
-            <p class="publish"><i class="fas fa-clock"></i> Publish date: {{post.date_publish}}</p>
+            <small class="publish"><i class="fas fa-clock"></i> Publish date: {{post.date_publish}}</small>
             {% include "profile.html" with author=post.author %}
             <a href="{% url 'post_tag' post.tag %}">#{{post.tag}}</a>
         </div>
         <hr>
         <div class="content">
-            <img src="/media/{{post.cover_image}}" class="w-100" loading="lazy" alt="{{post.title}} cover image" />
+            <img src="/media/{{post.cover_image}}" class="w-100 shadow-5 br3" loading="lazy" alt="{{post.title}} cover image" style="height: 370px" />
             <br>
             <hr>
             <br>

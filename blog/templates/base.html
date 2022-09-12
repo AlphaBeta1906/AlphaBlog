@@ -18,8 +18,7 @@
             {% endblock title %}
         </title>    
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />    
-    
-        
+            
         <link  rel="stylesheet" href="{% static "tachyon.css" %}" />
         <link :disabled="dark?false:true" rel="stylesheet" href="{% static "stata_dark.css" %}" />
         <link :disabled="dark?true:false"  rel="stylesheet" href="{% static "stata_light.css" %}" />
@@ -42,13 +41,12 @@
                 <li><i :class="dark?'fas fa-sun':'fas fa-moon'" class="theme_switch" x-on:click="dark = !dark;localStorage.setItem('dark',dark)"></i></li>
             </ul>
         </nav>
-        <div style="padding-bottom: 15px;">
+        <div>
         {% block content %}
         
         {% endblock content %}
         </div>
-        <br>
-        <div class="footer" style="padding-bottom:15px ;padding-top: 15px">
+        <div class="footer">
             <center>
                 <p>
                     &copy;
