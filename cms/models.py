@@ -38,7 +38,7 @@ class Post(models.Model):
     title =  models.CharField(null=False,max_length=50)
     content = MarkdownxField()    
     cover_image = models.ImageField(upload_to="static/image",default="static/image/nopic.png")
-    date_publish = models.DateField(editable=False,null=True)
+    date_publish = models.DateField(editable=False,null=True,auto_now_add=True)
     date_update = models.DateField(null=True)
     tag = models.ForeignKey(Tag,on_delete=models.CASCADE,null=False)
     slug = AutoSlugField(populate_from="title" )
@@ -50,14 +50,6 @@ class Post(models.Model):
     
     def save(self,*args, **kwargs):
         self.cover_image = compress(self.cover_image)
-        exist = Post.objects.filter(title=self.title).first()
-        if not self.draft and exist:
-            self.date_update = timezone.now()
-            
-        if self.draft and not exist:
-            self.date_publish = None
-        else:
-            self.date_publish = datetime.today()
         return super(Post,self).save(*args, **kwargs)
     
     def get_absolute_url(self):
